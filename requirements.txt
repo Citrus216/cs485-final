@@ -1,0 +1,6 @@
+# You shouldn't need any of this but i just did pip freeze in case i had something i forgot about
+joblib==1.3.2
+numpy==1.26.1
+scikit-learn==1.3.1
+scipy==1.11.3
+threadpoolctl==3.2.0

@@ -1,0 +1,9 @@
+This file contains groupings of labels defined in labels.txt that we will use as our primary propaganda types.
+["Name_Calling,Labeling"],
+["Exaggeration,Minimisation"],
+["Doubt", "Appeal_to_fear-prejudice"],
+["Black-and-White_Fallacy"],
+["Straw_Men", "Whataboutism", "Red_Herring"],
+["Bandwagon"],
+["Flag-Waving"],
+["Repetition", "Slogans"]
