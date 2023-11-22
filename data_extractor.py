@@ -49,7 +49,9 @@ def main(args):
         exit(1)
 
     # write data to file
-    with open("data.csv", "w") as f:
+    file_name_prefix = dir_name.strip('/') + ('_' if len(dir_name) > 0 else '')
+
+    with open(f"{file_name_prefix}data.csv", "w") as f:
         writer = csv.writer(f)
         writer.writerow(["document_id", "label", "text"])
         writer.writerows(doc_data)
@@ -67,7 +69,7 @@ def main(args):
             if label in label_group:
                 collapsed_data[text][i] = 1
 
-    with open("data_collapsed.csv", "w") as f:
+    with open(f"{file_name_prefix}data_collapsed.csv", "w") as f:
         writer = csv.writer(f)
         writer.writerow(["text"] + [str(label_group) for label_group in _desired_labels])
         writer.writerows([[text] + flags for text, flags in collapsed_data.items()])
@@ -81,7 +83,9 @@ def process_file(dir_name: str, file: str) -> list:
     """
     ret = []
 
-    with open(dir_name + file, "r") as f:
+    full_name = f"{dir_name.rstrip('/') + '/'}{file}"
+
+    with open(full_name, "r") as f:
         print("Processing " + file)
         reader = csv.reader(f, delimiter="\t" if ".tsv" in file else ",")
         for document_id, label, start, end, *_ in reader:
@@ -92,7 +96,7 @@ def process_file(dir_name: str, file: str) -> list:
 
 def get_text(dir_name: str, document_id: str, start: int, end: int) -> str:
     if document_id not in _files:
-        full_name = f"{dir_name + ('/' if not dir_name.endswith('/') else '')}article{document_id}.txt"
+        full_name = f"{dir_name.rstrip('/') + '/'}article{document_id}.txt"
         # just open 2 for now so we can try the other encoding on error
         with open(full_name, "r", encoding="utf-8") as f_utf_8, open(full_name, "r", encoding="utf-16") as f_utf_16:
             try:

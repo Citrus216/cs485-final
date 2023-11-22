@@ -1,0 +1,9 @@
+Number of documents: 451
+Number of words across all documents: 191244
+Average number of words per document: 424.04434589800445
+Data file formats: {'tsv', 'txt'}
+Provided dataset names: {'train', 'dev', 'test'}
+Number of documents per dataset: {'test': 101, 'train': 293, 'dev': 57}
+Number of words per dataset: {'test': 52610, 'train': 124421, 'dev': 14213}
+Average number of words per document per dataset: {'test': 520.8910891089109, 'train': 424.64505119453923, 'dev': 249.35087719298247}
+Average number of annotations per document per dataset: {'train': 9.706484641638225, 'dev': 10.929824561403509, 'test': 4.673267326732673}
